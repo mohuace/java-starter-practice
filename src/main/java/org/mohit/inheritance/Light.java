@@ -6,8 +6,16 @@ public class Light {
     private boolean indicator;
     public int numberOfWatts;
 
+    public String billType = "Small";
+
+    public String getBillType() {
+        return billType;
+    }
+
     //Only accessible from within the package
     protected String location;
+
+    public boolean isSmart = false;
 
     private static int counter; //for number of light objects that are created
 
@@ -41,5 +49,13 @@ public class Light {
 
     public void writeCount() {
         System.out.println("Number of lights currently are"+counter);
+    }
+
+    protected void trial() {
+        System.out.println("Inside light");
+    }
+
+    public Light makeInstance(boolean indicator, int numberOfWatts, String location) {
+        return new Light(indicator, numberOfWatts, location);
     }
 }
