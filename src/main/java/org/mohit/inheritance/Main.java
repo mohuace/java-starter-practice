@@ -56,5 +56,9 @@ public class Main {
         //TODO: ASK - but when you use getters and setters, you are essentially relying on what the state of
         //the object would be at runtime, and accordingly that field will be accessed?????
 
+        Light tube3 = new Tubelight(false, 44, "sfo");
+        //we won't be able to access tube3.check even though it is public in child
+        //it only checks the check inside Light class because it checks the reference type
+
     }
 }

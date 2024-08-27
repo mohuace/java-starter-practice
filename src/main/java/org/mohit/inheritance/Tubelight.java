@@ -7,6 +7,8 @@ public class Tubelight extends Light {
     private int tubeLength = 55;
     private int colorNo = 10;
 
+    public String check = "inside tubelight";
+
     //Same instance variable as declared in Light
     public String billType = "Large";
 

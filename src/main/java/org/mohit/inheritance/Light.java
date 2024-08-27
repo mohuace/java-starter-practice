@@ -6,6 +6,8 @@ public class Light {
     private boolean indicator;
     public int numberOfWatts;
 
+    private String check = "hey";
+
     public String billType = "Small";
 
     public String getBillType() {
