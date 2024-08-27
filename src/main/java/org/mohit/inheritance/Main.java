@@ -59,7 +59,7 @@ public class Main {
         Light tube3 = new Tubelight(false, 44, "sfo");
         //we won't be able to access tube3.check even though it is public in child
         //it only checks the check inside Light class because it checks the reference type
-        //
+        ////
 
     }
 }
