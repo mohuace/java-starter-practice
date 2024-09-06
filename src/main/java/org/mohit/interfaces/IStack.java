@@ -16,4 +16,6 @@ public interface IStack {
     void push(Object o);
     //This translates to
     //public abstract void push(Object o);
+
+    Object pop();
 }
