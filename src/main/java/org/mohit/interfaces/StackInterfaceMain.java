@@ -16,10 +16,15 @@ public class StackInterfaceMain {
         //it will print just fine.
         System.out.println(stackImp1.pop());
 
+        stackImp1.push(new Employee(2, "jack's replacement", "bbc", 2500));
+
+        System.out.println(stackImp1.stackArr);
+
+
         //Should return pam
-        System.out.println(stackImp2.pop());
+        //System.out.println(stackImp2.pop());
 
         //Should return mohit
-        System.out.println(stackImp1.pop());
+        //System.out.println(stackImp1.pop());
     }
 }

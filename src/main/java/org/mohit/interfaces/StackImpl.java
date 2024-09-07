@@ -7,6 +7,8 @@ public class StackImpl implements IStack {
 
     List<Object> stackArr = new ArrayList<>();
 
+    int capacity = 10;
+
     //Top of stack
     int tos = -1;
 
@@ -14,8 +16,21 @@ public class StackImpl implements IStack {
     //But i am just playing with the index
 
 
+    //Add method will shift positions if there is any element already present in that index
+    //So need to check if element already exists, then replace (set), otherwise just do a simple
+    //add
     @Override
     public void push(Object o) {
+        if(tos + 1 >= 0 && tos + 1 < stackArr.size()) {
+            //We don't need to check if there is an element at tos + 1
+            //Because arraylist is dynamic, we can check if tos + 1 is within the range of the list size
+            //so if tos is at the last element, the above condition will be false and new element will be added
+            //otherwise there would already be an element one position ahead, and we will simply replace that element
+            //if(stackArr.contains(stackArr.get(tos + 1))) {
+                stackArr.set(++tos, o);
+                return;
+            //}
+        }
         stackArr.add(++tos, o);
     }
 
