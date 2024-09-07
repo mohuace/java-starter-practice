@@ -26,5 +26,14 @@ public class StackInterfaceMain {
 
         //Should return mohit
         //System.out.println(stackImp1.pop());
+
+        ISafeStack safeStackref = new SafeStackImpl();
+        safeStackref.push(new Employee(1, "mohit", "abc", 2000));
+        safeStackref.push(new Employee(2, "jack", "def", 3000));
+
+        safeStackref.push(new Employee(3, "pam", "ref", 5000));
+
+        System.out.println(safeStackref.isEmpty());
+        System.out.println(safeStackref.isFull());
     }
 }
