@@ -18,4 +18,12 @@ public interface IStack {
     //public abstract void push(Object o);
 
     Object pop();
+
+    boolean testMethod();
+
+    //Abstract methods cannot have body,
+    //to provide body need to declare as private or static or default
+    default void doingSomething() {
+        System.out.println("This is some default method");
+    }
 }

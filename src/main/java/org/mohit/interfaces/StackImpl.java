@@ -41,4 +41,9 @@ public class StackImpl implements IStack {
     public Object pop() {
         return stackArr.get(tos--);
     }
+
+    @Override
+    public boolean testMethod() {
+        return false;
+    }
 }

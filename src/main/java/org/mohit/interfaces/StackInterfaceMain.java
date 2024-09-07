@@ -35,5 +35,27 @@ public class StackInterfaceMain {
 
         System.out.println(safeStackref.isEmpty());
         System.out.println(safeStackref.isFull());
+
+        safeStackref.doingSomething();
+
+        ITestStack testStack = new TestStackImpl();
+        testStack.doingSomething();
+
+
+        //polymorphism behaviour
+        SafeStackImpl safeStackImpl = new SafeStackImpl();
+        //ISafeStack is parent of SafeStackImpl --> so you can give reference to parent easily
+        //Because SafeStackImpl IS-A ISafeStack
+        ISafeStack iSafeStackRef = safeStackImpl;
+
+        //Can't do the other way round
+        //This is because iSafeStack IS NOT A SafeStackImpl
+//        ISafeStack iSafeStack = new SafeStackImpl();
+//        SafeStackImpl safeStackRef = iSafeStack;
+
+        //You can give safeStackImpl to IStack also
+        IStack iStackRef = safeStackImpl;
+        //But here, you won't have access to isEmpty or isFull
+        //Because in the interface of IStack, those methods do not exist so not in the contract
     }
 }

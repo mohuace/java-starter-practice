@@ -10,4 +10,9 @@ public class SafeStackImpl extends StackImpl implements ISafeStack{
     public boolean isFull() {
         return tos == capacity - 1;
     }
+
+    @Override
+    public boolean testMethod() {
+        return true;
+    }
 }
