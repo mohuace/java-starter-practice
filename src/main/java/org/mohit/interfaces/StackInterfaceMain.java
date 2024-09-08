@@ -57,5 +57,30 @@ public class StackInterfaceMain {
         IStack iStackRef = safeStackImpl;
         //But here, you won't have access to isEmpty or isFull
         //Because in the interface of IStack, those methods do not exist so not in the contract
+
+        //You can create Array types of Interface
+        //for eg,
+        //This is legal
+        //But when you add elements in here, you will most probably
+        //need to put objects of classes that implement this interface
+        ISafeStack[] iSafeStacks = new ISafeStack[10];
+
+        //Example
+        //This is valid because SafeStackImpl[] is child of StackImpl[],
+        //Note: SafeStackImpl is assigned at runtime, not at compile time,
+        //Compiler only knows the LHS part, that is stackImpls array is of type
+        //StackImpl[].
+        StackImpl[] stackImpls = new SafeStackImpl[5];
+        //This is also valid because inside the array the objects should be of type StackImpl, which is true
+        //as SafeStackImpl is of type StackImpl
+        stackImpls[0] = new SafeStackImpl();
+        //The bottom line may seem to be fine. But there is a problem.
+        //We have defined our stackImpls as object of type SafeStackImpl[]
+        //And now inside that array u are putting elements of type StackImpl which is not possible
+        //because even though SafeStackImpl IS A StackImpl but StackImpl IS NOT A SafeStackImpl.
+        //So object of StackImpl cannot be assigned to SafeStackImpl (parent IS NOT A child)
+        //But this will give error in runtime not compile time because what object is getting used
+        //is not decided.
+        stackImpls[1] = new StackImpl(); //Throws array store exception
     }
 }
