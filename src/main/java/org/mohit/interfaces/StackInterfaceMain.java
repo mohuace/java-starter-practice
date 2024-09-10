@@ -81,6 +81,16 @@ public class StackInterfaceMain {
         //So object of StackImpl cannot be assigned to SafeStackImpl (parent IS NOT A child)
         //But this will give error in runtime not compile time because what object is getting used
         //is not decided.
-        stackImpls[1] = new StackImpl(); //Throws array store exception
+        //stackImpls[1] = new StackImpl(); //Throws array store exception
+
+
+        //Understanding reference conversions
+        Object objRef;
+        StackImpl stackImplRef;
+        SafeStackImpl safeStackRef;
+        IStack iStackRef1;
+        ISafeStack iSafeStackRef1;
+        
+
     }
 }
