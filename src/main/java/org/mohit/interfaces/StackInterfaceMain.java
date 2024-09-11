@@ -90,7 +90,19 @@ public class StackInterfaceMain {
         SafeStackImpl safeStackRef;
         IStack iStackRef1;
         ISafeStack iSafeStackRef1;
-        
+
+        safeStackRef = new SafeStackImpl(); //obv possible as same type
+        objRef = safeStackRef; //possible because safeStackRef IS-A Object
+        stackImplRef = safeStackRef; // possible because stackImplRef is parent
+
+        //for arrays
+        Object[] objArr = new Object[3]; //Always possible
+        int[] intArray = new int[10];
+        objRef = intArray; //possible because Object is at the top
+        //objArr = intArray; doesnt work because array of primitive types directly have Object as parent and not Object[]
+
+
+
 
     }
 }
