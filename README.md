@@ -1,2 +1,2 @@
 # java-starter-practice
-Initial commit in develop
+Reading Khalid Mughal Certification Book 3rd Edition
