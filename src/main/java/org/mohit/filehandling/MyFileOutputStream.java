@@ -20,6 +20,8 @@ public class MyFileOutputStream {
 
             //We are writing the byte array into the output stream, which will load into the output file (destination)
             //TODO: ASK how does it know to convert the byte array into a string in the text file?
+            //ANS - The output stream doesnt do this, it directly write the byte[] in the file,
+            //the file editor interprets the byte[] and converts into valid characters inside the file.
             os.write(byteData);
 
 
