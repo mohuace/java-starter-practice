@@ -24,6 +24,12 @@ public class MyFileOutputStream {
             //the file editor interprets the byte[] and converts into valid characters inside the file.
             os.write(byteData);
 
+            //Not useful here..the write method for FileOutputStream, loads in the output stream and immediately
+            //writes the data into the destination (file). But, there is another type called BufferedOutputStream
+            //Here, the output stream stores data in a temporary buffer and then once the buffer is full, it writes
+            //the data into the actual destination. flush() does not wait for buffer to get full and immediately writes into the destination.
+            //os.flush();
+
 
             os.close();
 
