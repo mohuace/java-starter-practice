@@ -54,6 +54,10 @@ public class MyBufferedInputStream {
 
             //System.out.println(str1);
 
+            bis.close();
+            fis.close();
+            fis1.close();
+
         }
         catch(IOException e) {
             System.out.println(e);
