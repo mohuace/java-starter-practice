@@ -22,6 +22,7 @@ public class MyBufferedInputStream {
 
             //Performing read operation (reading from disk and writing into byte array)
             Instant startFIS = Instant.now();
+            //This happens one byte at a time
             fis.read(largeInput);
             Instant endFIS = Instant.now();
 
@@ -41,6 +42,8 @@ public class MyBufferedInputStream {
             BufferedInputStream bis = new BufferedInputStream(fis1, 1024 * 10);
             byte[] bufferedInputByteArray = new byte[fis1.available()];
             Instant startBIS = Instant.now();
+            //This reads into the buffer first (chunks of bytes at a time, in this case 10 Mb)
+            //Then data is read from that buffer which is fast.
             bis.read(bufferedInputByteArray);
             Instant endBIS = Instant.now();
 
