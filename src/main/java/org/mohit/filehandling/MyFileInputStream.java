@@ -12,6 +12,9 @@ public class MyFileInputStream {
 
         try {
             //Read text file and store it in the input stream (text file is the source), input stream is the program
+            //This doesn't do actual reading, actual reading one byte at a time is performed by the read method
+            //This connects the program with the file system and has access to the file's metadata such as
+            //size, which is used to find how many bytes are available to be read, available() method.
             InputStream input = new FileInputStream("sample.txt");
 
             System.out.println(input.available());
