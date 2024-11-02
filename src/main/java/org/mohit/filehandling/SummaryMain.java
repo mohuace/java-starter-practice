@@ -80,12 +80,69 @@ public class SummaryMain {
             baos.close();
 
             //5. ObjectOutputStream
+
+            //Convert an object into a byte stream so that it can be sent across a network
+            //This is called serialization.
+            FileOutputStream foos = new FileOutputStream("file_object.txt");
+            //Object os will only do the conversion of object into a byte stream,
+            //but it will further require some OutputStream obj that will actually
+            //perform the write to the destination (network stream, file output stream, byte array output stream, etc).
+            ObjectOutputStream oos = new ObjectOutputStream(foos);
+
+            String s1 = "this is an object that is going to be written into a text file";
+            int i = 10;
+
+            oos.writeInt(i);
+            oos.writeObject(s1);
+
+            //Now you have written both the objects into the file
+            //How to access it?
+
             //6. ObjectInputStream
+            FileInputStream fios = new FileInputStream("file_object.txt");
+            //Object input stream will use the underlying input stream and deserialize
+            //them into objects, this way the state of the object is preserved.
+            ObjectInputStream ois = new ObjectInputStream(fios);
+
+            System.out.println("The integer is "+ois.readInt());
+            System.out.println(ois.readObject());
+
+            //Note, need to read (deserialize) in the same sequence as it was written.
+            //If you wrote int first, you cannot deserialize object, it will give error
+
+            ois.close();
+            oos.close();
+
             //7. BufferedInputStream
+            FileInputStream fis1 = new FileInputStream("some_large_file.txt");
+            //It will read chunks of data and store in the buffered input stream.
+            //But this statement will only initialize the buffer
+            BufferedInputStream bis = new BufferedInputStream(fis1, 1024);
+
+            //This will read chunk of data from the memory and store it in the internal buffer
+            //Subsequent read calls will then be reading from the buffer rather than going to the disk
+            //to fetch data each time.
+            //bis.read();
+
+            byte[] inBuffArr = new byte[bis.available()];
+
+            bis.read(inBuffArr);
+
+            System.out.println(new String(inBuffArr));
+
+
+
+
+
             //8. BufferedOutputStream
+
+
         }
         catch(IOException e) {
             throw new RuntimeException(e);
+        }
+        catch (ClassNotFoundException e1) {
+            throw new RuntimeException(e1);
         }
 
 

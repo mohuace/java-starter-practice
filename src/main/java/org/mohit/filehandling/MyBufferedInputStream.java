@@ -42,9 +42,13 @@ public class MyBufferedInputStream {
             BufferedInputStream bis = new BufferedInputStream(fis1, 1024 * 10);
             byte[] bufferedInputByteArray = new byte[fis1.available()];
             Instant startBIS = Instant.now();
+            bis.read(bufferedInputByteArray);
             //This reads into the buffer first (chunks of bytes at a time, in this case 10 Mb)
             //Then data is read from that buffer which is fast.
-            bis.read(bufferedInputByteArray);
+            //This will read chunk of data from the memory and store it in the internal buffer
+            //Subsequent read calls will then be reading from the buffer rather than going to the disk
+            //to fetch data each time.
+            //bis.read();
             Instant endBIS = Instant.now();
 
             // Calculate the duration

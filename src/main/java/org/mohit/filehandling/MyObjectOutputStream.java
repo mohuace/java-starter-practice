@@ -26,6 +26,9 @@ public class MyObjectOutputStream {
             objectOutputStream.writeInt(data1);
             objectOutputStream.writeObject(data2);
 
+            //Note, need to read (deserialize) in the same sequence as it was written.
+            //If you wrote int first, you cannot deserialize object, it will give error
+
             //Now I will use ObjectInputStream and FileInputStream to fetch and deserialize data
             FileInputStream fileIs = new FileInputStream("file_output_obj.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileIs);
