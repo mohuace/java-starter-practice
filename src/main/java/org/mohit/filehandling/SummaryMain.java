@@ -135,6 +135,20 @@ public class SummaryMain {
 
 
             //8. BufferedOutputStream
+            FileOutputStream fos_buff = new FileOutputStream("file_buff.txt");
+            BufferedOutputStream bos = new BufferedOutputStream(fos_buff, 100);
+
+            String data = "hey there, this is not a large text file and it is even smaller than the buffer size";
+
+            //The buffer size is much big, so what buffered output stream does is, it will take chunks of data
+            //and load them into the buffer, it won't immediately write to the disk...for that u can use flush().
+            //It will only write to the disk once the buffer is full, or the buffered output stream is close.
+            //WHen u don't have anything mentioned, it wont write if the buffered is not full yet.
+            bos.write(data.getBytes());
+
+            //This becomes important because if buffer size is larger than the data, then in that case the
+            //data wont be written from the buffer to the disk.
+            bos.close();
 
 
         }
